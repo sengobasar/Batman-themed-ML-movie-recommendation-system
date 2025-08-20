@@ -13,7 +13,9 @@ function App() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/recommend?movie_name=${encodeURIComponent(userInput)}`);
+      // CORRECTED: Use the public URL of the deployed backend on Render.
+      const response = await fetch(`https://batman-themed-ml-movie-recommendation.onrender.com/recommend?movie_name=${encodeURIComponent(userInput)}`);
+      
       if (!response.ok) {
         throw new Error("Server error");
       }
